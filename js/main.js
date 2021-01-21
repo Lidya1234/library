@@ -63,11 +63,19 @@ function changeReadStatus(read) {
 //   this.read = read;
 // }
 
-const bookFactory = (title, author, pages, read) => ({
-  title, author, pages, read,
-});
+// const bookFactory = (title, author, pages, read) => ({
+//   title, author, pages, read,
+// });
 
-
+class BookClass{
+  constructor(title, author, pages, read)
+  {
+    this.title = title;
+    this.author = author;
+   this.pages = pages;
+   this.read = read;
+  }
+}
 function addBookToLibrary(e) {
   e.preventDefault();
 
@@ -75,7 +83,7 @@ function addBookToLibrary(e) {
   const authorInput = document.querySelector('#author').value;
   const pagesInput = document.querySelector('#pages').value;
   const readInput = document.querySelector('#read').value;
-  const newBook = bookFactory(titleInput, authorInput, pagesInput, readInput);
+  const newBook = new BookClass(titleInput, authorInput, pagesInput, readInput);
 
   if (validateForm()) {
     myLibrary.push(newBook);
